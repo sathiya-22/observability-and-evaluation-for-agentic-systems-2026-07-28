@@ -1,0 +1,16 @@
+[project]
+name = "agent-eval"
+version = "0.1.0"
+description = "A prototype for agentic AI system observability and evaluation."
+dependencies = [
+    "click>=8.1.7",
+    "pandas>=2.1.4",
+    "tabulate>=0.9.0",
+]
+
+[project.scripts]
+agent-eval = "agent_eval.cli:cli"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
