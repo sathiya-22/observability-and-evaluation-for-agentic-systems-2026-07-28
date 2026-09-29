@@ -27,6 +27,8 @@ class AgentTracer:
 
     def start_run(self, run_id: Optional[str] = None, metadata: Optional[Dict[str, Any]] = None):
         """Starts a new agent run."""
+        if self._current_run_id:
+            raise RuntimeError(f"Run {self._current_run_id} is already active. End it before starting a new one.")
         self._current_run_id = run_id or str(uuid.uuid4())
         self.log_event("agent_run_start", {"run_id": self._current_run_id, "metadata": metadata or {}})
 
